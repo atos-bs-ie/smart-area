@@ -452,7 +452,7 @@ angular.module('smartArea', [])
                 });
 
                 $scope.dropdown.customSelect = null;
-                $scope.dropdown.current = 0;
+                $scope.dropdown.current = -1;
                 $scope.dropdown.content = suggestions;
             }
 
