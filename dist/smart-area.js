@@ -194,6 +194,7 @@ angular.module('smartArea', [])
                 if($scope.dropdown.content.length > 0) {
                     var code = event.keyCode || event.which;
                     if (code === 13) { // Enter
+                      if($scope.dropdown.current !== -1) {
                         event.preventDefault();
                         event.stopPropagation();
                         // Add the selected word from the Dropdown
@@ -201,6 +202,12 @@ angular.module('smartArea', [])
                         $timeout(function(){
                             $scope.dropdown.selected($scope.dropdown.content[$scope.dropdown.current]);
                         },0);
+                      } else {
+                        $timeout(function(){
+                            $scope.dropdown.content = [];
+                            $element[0].focus();
+                        },0);
+                      }
                     }else if(code === 38){ // Up
                         event.preventDefault();
                         event.stopPropagation();
