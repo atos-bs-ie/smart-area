@@ -484,6 +484,12 @@ angular.module('smartArea', [])
                 }, 0);
             });
 
+            $element.bind('blur', function () {
+                $timeout(function(){
+                    $scope.dropdown.content = [];
+                }, 0);
+            });
+
             $element.bind('keydown', function(event){
               resetScroll();
               $scope.keyboardEvents(event);
