@@ -18,6 +18,7 @@ angular.module('smartArea', [])
         },
         replace: true,
         link: function(scope, textArea){
+            scope.textArea = textArea;
             if(textArea[0].tagName.toLowerCase() !== 'textarea'){
                 console.warn("smartArea can only be used on textareas");
                 return false;
@@ -152,7 +153,9 @@ angular.module('smartArea', [])
                 $scope.trackCaret();
 
                 // TODO Track caret on another fake area, so I don't have to recalculate autocomplete triggers every time the cursor moves.
-                checkTriggers();
+                if(document.activeElement === $scope.textArea[0]) {
+                    checkTriggers();
+                }
             });
 
             /* +----------------------------------------------------+
@@ -377,7 +380,7 @@ angular.module('smartArea', [])
                         // I need to get the index of the last match
                         var searchable = text.substr(0, position),
                             match, found = false, lastPosition = -1;
-			element.trigger.lastIndex = 0;
+                        element.trigger.lastIndex = 0;
                         while ((match = element.trigger.exec(searchable)) !== null){
                             if(match.index === lastPosition){
                                 break;
