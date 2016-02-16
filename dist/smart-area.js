@@ -490,7 +490,7 @@ angular.module('smartArea', [])
             $element.bind('blur', function () {
                 $timeout(function(){
                     $scope.dropdown.content = [];
-                }, 0);
+                }, 250);
             });
 
             $element.bind('keydown', function(event){
