@@ -3,14 +3,12 @@
     position:relative;
 }
 .sa-realArea, .sa-fakeArea{
-    color: inherit;
     resize: none;
-    overflow: hidden;
     z-index:0;
+    overflow: auto;
 }
 
 textarea.sa-realArea{
-    -webkit-text-fill-color: transparent;
     position:absolute;
     top:0;
     left:0;
@@ -22,7 +20,8 @@ textarea.sa-realArea:hover, textarea.sa-realArea:focus{
 }
 
 .sa-fakeArea{
-    color:#000;
+    overflow: none;
+    color: transparent;
     height:100%;
 }
 
